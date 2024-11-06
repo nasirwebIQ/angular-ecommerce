@@ -1,1 +1,55 @@
-<p>login works!</p>
+<!-- login.component.html -->
+<section class="h-full bg-gray-50 py-6">
+  <div class="container mx-auto my-6 px-4 py-4">
+    <h1 class="text-3xl font-semibold text-center mb-6">Login</h1>
+    <hr class="my-4" />
+    <div class="flex justify-center items-center my-6 h-full">
+      <div class="w-full sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto">
+        <!-- Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6 min-h-[400px]">
+          <form>
+            <div class="my-4">
+              <label for="floatingInput" class="block text-lg font-medium"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="my-4">
+              <label for="floatingPassword" class="block text-lg font-medium"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+            </div>
+            <div class="my-4">
+              <p class="text-center">
+                New Here?
+                <a routerLink="/register" class="text-blue-500 underline"
+                  >Register</a
+                >
+              </p>
+            </div>
+            <div class="text-center">
+              <button
+                class="w-full py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="submit"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- End Card -->
+      </div>
+    </div>
+  </div>
+</section>

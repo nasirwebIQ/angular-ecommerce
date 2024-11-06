@@ -1,10 +1,12 @@
+<!-- Main Navigation Bar -->
 <nav
-  class="navbar flex bg-gray-300 h-20 items-center justify-between sticky top-0"
+  class="navbar flex z-10 bg-[#ffffff] shadow-sm border border-gray-300 h-20 items-center justify-between sticky top-0"
 >
   <div class="navbar-brand ml-[30px] font-bold text-4xl">
     <a routerLink="/home" class="navbar-item cursor-pointer">My App</a>
   </div>
 
+  <!-- Navbar links for larger screens -->
   <div class="navbar-menu hidden lg:flex">
     <div class="navbar-start flex gap-5">
       <a routerLink="/home" class="navbar-item cursor-pointer">Home</a>
@@ -14,20 +16,69 @@
     </div>
   </div>
 
-  <div class="buttons flex items-center mr-[30px]">
+  <!-- Right buttons and menu toggle for small screens -->
+  <div class="buttons flex items-center mr-[30px] gap-5">
+    <!-- Login Button (with icon only on small screens) -->
+    <a
+      routerLink="/login"
+      class="flex items-center gap-2 lg:border lg:border-gray-800 text-gray-800 lg:py-2 lg:px-4 p-2 rounded"
+    >
+      <i class="fas fa-sign-in-alt"></i>
+      <span class="hidden lg:inline">Login</span>
+    </a>
+
+    <!-- Register Button (with icon only on small screens) -->
+    <a
+      routerLink="/register"
+      class="flex items-center gap-2 lg:border lg:border-gray-800 text-gray-800 lg:py-2 lg:px-4 p-2 rounded"
+    >
+      <i class="fas fa-user-plus"></i>
+      <span class="hidden lg:inline">Register</span>
+    </a>
+
+    <!-- Cart Button (with icon only on small screens) -->
+    <a
+      routerLink="/cart"
+      class="flex items-center gap-2 lg:border lg:border-gray-800 text-gray-800 lg:py-2 lg:px-4 p-2 rounded"
+    >
+      <i class="fas fa-shopping-cart"></i>
+      <span class="hidden lg:inline">Cart</span>
+    </a>
+
+    <!-- Hamburger Menu Button for Small Screens -->
     <button
       (click)="toggleMenu()"
       class="lg:hidden border border-gray-800 text-gray-800 py-2 px-4 rounded flex items-center"
     >
       <i class="fas fa-bars"></i>
-      <!-- Hamburger Icon -->
     </button>
+  </div>
 
+  <!-- Sidebar Menu (for small screens) -->
+  <div
+    *ngIf="isMenuOpen"
+    class="fixed inset-0 bg-gray-800 bg-opacity-50 z-50 lg:hidden"
+    (click)="toggleMenu()"
+  >
+    <!-- Sidebar Panel (left-slide) -->
     <div
-      *ngIf="isMenuOpen"
-      class="lg:hidden absolute bg-gray-300 shadow-lg rounded-lg mt-2"
+      class="sidebar bg-[#ffffff] w-64 h-full p-4 shadow-lg fixed top-0 left-0 transform transition-transform duration-500 ease-in-out"
+      [ngClass]="{
+        '-translate-x-full': !isMenuOpen,
+        'translate-x-0': isMenuOpen
+      }"
+      (click)="$event.stopPropagation()"
     >
-      <div class="flex flex-col gap-2 p-4">
+      <!-- Sidebar Header with Close Icon -->
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-bold text-xl">My Menu</h2>
+        <button (click)="toggleMenu()" class="text-gray-800 text-2xl">
+          &times;
+        </button>
+      </div>
+
+      <!-- Sidebar Links -->
+      <div class="flex flex-col gap-4">
         <a routerLink="/home" class="navbar-item cursor-pointer">Home</a>
         <a routerLink="/products" class="navbar-item cursor-pointer"
           >Products</a
@@ -35,27 +86,6 @@
         <a routerLink="/about" class="navbar-item cursor-pointer">About</a>
         <a routerLink="/contact" class="navbar-item cursor-pointer">Contact</a>
       </div>
-    </div>
-
-    <div class="hidden lg:flex gap-5">
-      <a
-        href="/login"
-        class="border border-gray-800 text-gray-800 py-2 px-4 rounded m-2 flex items-center"
-      >
-        <i class="fas fa-sign-in-alt mr-2"></i> Login
-      </a>
-      <a
-        href="/register"
-        class="border border-gray-800 text-gray-800 py-2 px-4 rounded m-2 flex items-center"
-      >
-        <i class="fas fa-user-plus mr-2"></i> Register
-      </a>
-      <a
-        href="/cart"
-        class="border border-gray-800 text-gray-800 py-2 px-4 rounded m-2 flex items-center"
-      >
-        <i class="fas fa-shopping-cart mr-2"></i> Cart
-      </a>
     </div>
   </div>
 </nav>

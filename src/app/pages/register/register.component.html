@@ -1,1 +1,75 @@
-<p>register works!</p>
+<!-- register.component.html -->
+<section class="h-full bg-gray-50 py-6">
+  <div class="container mx-auto my-6 px-4 py-4">
+    <h1 class="text-3xl font-semibold text-center mb-6">Register</h1>
+    <hr class="my-4" />
+
+    <div class="flex justify-center items-center my-6 h-full">
+      <div class="w-full sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto">
+        <!-- Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6 min-h-[500px]">
+          <form>
+            <div class="my-4">
+              <label for="Name" class="block text-lg font-medium"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="Name"
+                name="name"
+                required
+                placeholder="Enter Your Name"
+              />
+            </div>
+
+            <div class="my-4">
+              <label for="Email" class="block text-lg font-medium"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="Email"
+                name="email"
+                required
+                placeholder="name@example.com"
+              />
+            </div>
+
+            <div class="my-4">
+              <label for="Password" class="block text-lg font-medium"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="Password"
+                name="password"
+                required
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="my-4">
+              <p class="text-center">
+                Already have an account?
+                <a routerLink="/login" class="text-blue-500 underline">Login</a>
+              </p>
+            </div>
+
+            <div class="text-center">
+              <button
+                class="w-full py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- End Card -->
+      </div>
+    </div>
+  </div>
+</section>
