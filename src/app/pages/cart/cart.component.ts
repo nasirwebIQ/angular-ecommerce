@@ -14,11 +14,13 @@ import { Product } from '../../services/products.service';
 export class CartComponent implements OnInit {
   cartItems: Product[] = [];
 
+
   constructor(private cartService: CartService) {}
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
     console.log(this.cartItems);
   }
+
 
   removeItem(productId: number) {
     this.cartService.removeFromCart(productId);
@@ -28,7 +30,9 @@ export class CartComponent implements OnInit {
   // Method to calculate the total price of items in the cart
   calculateItemsTotal() {
     return this.cartItems.reduce((total, item) => {
-      return total + item.price * item.quantity;
+      const subTotal = total + item.price * item.quantity;
+      return Math.round(subTotal *100)/100;
+
     }, 0);
   }
 
